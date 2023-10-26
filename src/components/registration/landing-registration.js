@@ -4,15 +4,14 @@ import { auth } from '../../firebase'
 
 function LandingRegistration() {
 
-    const [username, setUsername] = useState("")
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
+    const handleRegistration = async (e) => {
+        e.preventDefault();
 
         // TODO: handle signup with firebase.
-        console.log(email, password, username)
         await createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
@@ -29,7 +28,7 @@ function LandingRegistration() {
   return (
     <div>
         <h2>Sign Up</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleRegistration}>
             <div className='registration-input-username'>
                 <label htmlFor="username">Username: </label>
                 <input type="text" 
@@ -65,7 +64,7 @@ function LandingRegistration() {
             </div>
         </form>
     </div>
-  )
+  );
 }
 
-export default LandingRegistration
+export default LandingRegistration;
