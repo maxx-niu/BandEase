@@ -13,10 +13,11 @@ function Login() {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             // on a successful login
             const user = userCredential.user;
-            console.log('Logged in as:', user.displayName);
+            console.log(`logged in as: ${user.email}`);
+            alert(`logged in as: ${user.email}`)
         } catch (e) {
             // on a failed login
-            console.log('Login failed:', e.message);
+            alert('Login failed:', e.message);
             // TODO: replace with better user messsage
         };
     };

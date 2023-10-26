@@ -14,8 +14,9 @@ function LandingRegistration() {
         // TODO: handle signup with firebase.
         await createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            const user = userCredential.user;
+            const user = userCredential.user.email
             console.log(user);
+            alert('registration successful!');
             // TODO: add the username field in the DB
         })
         .catch(
