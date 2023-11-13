@@ -1,25 +1,14 @@
-import React, {useState} from 'react'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '../../firebase'
+import React, {useState} from 'react';
+import { useAuth } from '../../contexts/AuthContext';
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const {isAuthenticated, loginUser} = useAuth();
 
     const handleLogin = async (e) => {
         e.preventDefault();
-
-        try {
-            const userCredential = await signInWithEmailAndPassword(auth, email, password);
-            // on a successful login
-            const user = userCredential.user;
-            console.log(`logged in as: ${user.email}`);
-            alert(`logged in as: ${user.email}`)
-        } catch (e) {
-            // on a failed login
-            alert('Login failed:', e.message);
-            // TODO: replace with better user messsage
-        };
+        await loginUser(email, password);
     };
 
     return(

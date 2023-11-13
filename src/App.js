@@ -5,8 +5,11 @@ import LandingRegistration from './components/registration/landing-registration'
 import Login from './components/login/login';
 import UserProfile from './components/profile/user-profile';
 import {BrowserRouter, Routes, Route, Link, NavLink} from 'react-router-dom';
+import { useAuth } from './contexts/AuthContext';
 
 function App() {
+  const {isAuthenticated} = useAuth();
+
   return (
     <div className="App">
       <nav>
@@ -20,6 +23,7 @@ function App() {
         <Route path="/register" element={<LandingRegistration></LandingRegistration>}/>
         <Route path="/profile" element={<UserProfile></UserProfile>}/>
       </Routes>
+      <p>Auth Status: {isAuthenticated ? 'Yes' : 'No'}</p>
     </div>
   );
 }
