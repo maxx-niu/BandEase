@@ -1,5 +1,7 @@
 import React, {useState, useRef} from 'react'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
+import {ref, set} from 'firebase/database';
+import {database} from '../../firebase';
 import {Form, Button, Card} from 'react-bootstrap'
 import { auth } from '../../firebase'
 
@@ -18,10 +20,17 @@ function LandingRegistration() {
         // TODO: handle signup with firebase.
         await createUserWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
         .then((userCredential) => {
-            const user = userCredential.user.email
-            console.log(user);
-            alert('registration successful!');
-            // TODO: add the username field in the DB
+            // Get the user's uid
+            const uid = userCredential.user.uid;
+            // Create a reference to the user's entry in the database
+            const userRef = ref(database, 'users/' + uid);
+            // Set the user's data in the database
+            set(userRef, {
+                username: usernameRef.current.value,
+                email: emailRef.current.value
+            });
+            console.log('User added to the database');
+            alert('Registration successful!');
         })
         .catch(
             (err) => {

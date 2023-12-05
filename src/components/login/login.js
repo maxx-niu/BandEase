@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 
-function Login() {
+const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const {isAuthenticated, loginUser} = useAuth();
+    const {loginUser} = useAuth();
 
     const handleLogin = async (e) => {
         e.preventDefault();
