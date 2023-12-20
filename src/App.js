@@ -10,7 +10,7 @@ import { useAuth } from './contexts/AuthContext';
 
 const App = () => {
   const {isAuthenticated, user} = useAuth();
-
+  // asdfsadf
   return (
     <div className="App">
       <nav>
