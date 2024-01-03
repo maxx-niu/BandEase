@@ -36,16 +36,16 @@ const Navbar = () => {
         {!isAuthenticated && <NavLink to="/login">Login</NavLink>}
         {!isAuthenticated && <NavLink to="/register">Sign Up!</NavLink>}
         {isAuthenticated && (
-          <NavLink to="/profile">
+          <NavLink to="/profile" className="nav-profile-button">
             <ProfileDashboardButton/>
           </NavLink>
         )}
       </nav>
       <nav className={isOpen ? "side-bar active" : "side-bar"} style={{top: navMenuHeight}}>
         <ul className="side-bar-items">
-            <li>I am Item 1</li>
-            <li>I am Item 2</li>
-            <li>I am Item 3</li>
+            <li className="side-bar-item"><NavLink to="/">I am link 1</NavLink></li>
+            <li className="side-bar-item"><NavLink to="/">I am link 1</NavLink></li>
+            <li className="side-bar-item"><NavLink to="/" className="side-bar-item">I am link 1</NavLink></li>
         </ul>
       </nav>
     </>
