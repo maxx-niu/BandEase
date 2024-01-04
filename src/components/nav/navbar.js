@@ -1,7 +1,6 @@
 import './navbar.css';
 import { useState, useRef, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import Logout from '../login/logout';
 import ProfileDashboardButton from '../profile/profile-dashboard-button';
 import { useAuth } from '../../contexts/AuthContext';
 import logo from '../../assets/BandEase.svg';
@@ -43,7 +42,7 @@ const Navbar = () => {
       </nav>
       <nav className={isOpen ? "side-bar active" : "side-bar"} style={{top: navMenuHeight}}>
         <ul className="side-bar-items">
-            <li className="side-bar-item"><NavLink to="/">I am link 1</NavLink></li>
+            <li className="side-bar-item"><NavLink to="/fretboard">Interactive Fretboard</NavLink></li>
             <li className="side-bar-item"><NavLink to="/">I am link 1</NavLink></li>
             <li className="side-bar-item"><NavLink to="/" className="side-bar-item">I am link 1</NavLink></li>
         </ul>
