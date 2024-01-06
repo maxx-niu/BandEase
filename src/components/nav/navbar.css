@@ -49,6 +49,7 @@ nav .hamburger-menu span {
     position: fixed;
     left: -100%;
     transition: 850ms;
+    z-index: 999;
 }
 
 .side-bar.active {

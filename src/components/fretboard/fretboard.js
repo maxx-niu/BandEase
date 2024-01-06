@@ -10,11 +10,11 @@ const Fretboard = () => {
     for(let i = 0; i < 6; i++){
         const fretCells = [];
         for(let j = 0; j < 14; j++){
-            if(i >= 4){
+            if(i >= 4){ // for B & high E strings, since G --> B is a M3, not a P4 apart
                 const note = useSharps ? allNotesSharp[(5*i + j - 1) % 12] : allNotesFlat[(5*i + j - 1) % 12];
                 fretCells.push(
                     <td key={j} className="fret-cell">
-                        <NoteButton noteName={note}></NoteButton>
+                        <NoteButton noteName={note} className="note-button"></NoteButton>
                     </td>
                 )
             }
@@ -22,13 +22,13 @@ const Fretboard = () => {
                 const note = useSharps ? allNotesSharp[(5*i + j) % 12] : allNotesFlat[(5*i + j) % 12];
                 fretCells.push(
                     <td key={j} className="fret-cell">
-                        <NoteButton noteName={note}></NoteButton>
+                        <NoteButton noteName={note} className="note-button"></NoteButton>
                     </td>
                 )
             } 
         }
-        fretRows.push(
-            <tr key={i}>
+        fretRows.unshift(
+            <tr key={i} className="fretboard-string" data-string-thickness={6-i}>
                 {fretCells}
             </tr>
         )
