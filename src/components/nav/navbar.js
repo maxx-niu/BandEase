@@ -1,7 +1,6 @@
 import './navbar.css';
 import { useState, useRef, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import Logout from '../login/logout';
 import ProfileDashboardButton from '../profile/profile-dashboard-button';
 import { useAuth } from '../../contexts/AuthContext';
 import logo from '../../assets/BandEase.svg';
@@ -24,12 +23,14 @@ const Navbar = () => {
 
   return (
     <>
+      <div className={isOpen ? "side-bar-blocker active" : "side-bar-blocker"} onClick={toggleMenu} style={{top: navMenuHeight}}/>
       <nav className="nav-links" ref={navMenuHeightRef}>
         <div className="hamburger-menu" onClick={toggleMenu}>
-            <span></span>
-            <span></span>
-            <span></span>
+            <span/>
+            <span/>
+            <span/>
         </div>
+        {/* Routes Here */}
         <NavLink to="/" className="nav-home-logo">
             <img src={logo} alt='logo'></img>
         </NavLink>
@@ -41,9 +42,10 @@ const Navbar = () => {
           </NavLink>
         )}
       </nav>
+      {/* Slide out menu */}
       <nav className={isOpen ? "side-bar active" : "side-bar"} style={{top: navMenuHeight}}>
         <ul className="side-bar-items">
-            <li className="side-bar-item"><NavLink to="/">I am link 1</NavLink></li>
+            <li className="side-bar-item"><NavLink to="/fretboard">Interactive Fretboard</NavLink></li>
             <li className="side-bar-item"><NavLink to="/">I am link 1</NavLink></li>
             <li className="side-bar-item"><NavLink to="/" className="side-bar-item">I am link 1</NavLink></li>
         </ul>

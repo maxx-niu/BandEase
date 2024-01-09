@@ -1,0 +1,107 @@
+  .guitar-fretboard {
+    width: 100%;
+  }
+  
+  .guitar-fretboard .fret-cell {
+    background-color: #FECD9C;
+    height: 50px;
+    width: calc(96% / 13);
+    border-right: 6px solid #ACB4B8;
+    position: relative;
+  }
+
+  .guitar-fretboard .fret-cell.fret-0 {
+    background-color: #a58465;
+    width: 4%;
+    border-right: 14px solid #EDE9DC;
+  }
+
+  .guitar-fretboard .fret-cell .note-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .fretboard-string {
+    position: relative;
+  }
+
+  .guitar-fretboard .fretboard-string::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    background-color: #727472; /* color of the string */
+  }
+
+  .guitar-fretboard .fretboard-string[data-string-thickness="1"]::after {
+    height: 2px;
+  }
+  
+  .guitar-fretboard .fretboard-string[data-string-thickness="2"]::after {
+    height: 3px;
+  }
+  
+  .guitar-fretboard .fretboard-string[data-string-thickness="3"]::after {
+    height: 4px;
+  }
+
+  .guitar-fretboard .fretboard-string[data-string-thickness="4"]::after {
+    height: 5px;
+  }
+  
+  .guitar-fretboard .fretboard-string[data-string-thickness="5"]::after {
+    height: 6px;
+  }
+  
+  .guitar-fretboard .fretboard-string[data-string-thickness="6"]::after {
+    height: 7px;
+  }
+  
+  .guitar-fretboard .fret-cell .note-button {
+    position: relative;
+    z-index: 2;
+  }
+
+  .guitar-fretboard .fretboard-string .fret-cell.string-2.fret-marker::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -30%;
+    transform: translateX(-50%);
+    width: 30px; /* Marker size */
+    height: 30px; /* Marker size */
+    border-radius: 50%;
+    background: #fff; /* Marker color */
+    border: 1px solid #BCC6CC;
+  }
+
+  .guitar-fretboard .fretboard-string .fret-cell.string-2.double-fret-marker::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -30%;
+    transform: translateX(-50%);
+    width: 30px; /* Marker size */
+    height: 30px; /* Marker size */
+    border-radius: 50%;
+    background: #fff; /* Marker color */
+    border: 1px solid #BCC6CC;
+    z-index: 1;
+  }
+
+  .guitar-fretboard .fretboard-string .fret-cell.string-4.double-fret-marker::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -30%;
+    transform: translateX(-50%);
+    width: 30px; /* Marker size */
+    height: 30px; /* Marker size */
+    border-radius: 50%;
+    background: #fff; /* Marker color */
+    border: 1px solid #BCC6CC;
+    z-index: 1;
+  }
