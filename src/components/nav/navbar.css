@@ -41,7 +41,7 @@ nav .hamburger-menu span {
 }
 
 .side-bar {
-    background-color: #90e0ef;
+    background-color: #0077b6;
     width: 300px;
     height: 100vh;
     display: flex;
@@ -84,7 +84,11 @@ nav .hamburger-menu span {
   }
 
   .side-bar-item a:hover {
-    background-color: #1a83ff;
+    background-color: #03045e
+  }
+
+  .is-active {
+    background-color: #03045e
   }
 
   .side-bar-blocker {

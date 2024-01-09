@@ -78,7 +78,7 @@
     border: 1px solid #BCC6CC;
   }
 
-  .guitar-fretboard .fretboard-string .fret-cell.string-2.double-fret-marker::after {
+  .guitar-fretboard .fretboard-string .fret-cell.string-1.double-fret-marker::after {
     content: '';
     position: absolute;
     left: 50%;
@@ -92,7 +92,7 @@
     z-index: 1;
   }
 
-  .guitar-fretboard .fretboard-string .fret-cell.string-4.double-fret-marker::after {
+  .guitar-fretboard .fretboard-string .fret-cell.string-5.double-fret-marker::after {
     content: '';
     position: absolute;
     left: 50%;
