@@ -3,7 +3,7 @@
   }
   
   .guitar-fretboard .fret-cell {
-    background-color: #FECD9C; /* A light color to represent the frets */
+    background-color: #FECD9C;
     height: 50px;
     width: calc(96% / 13);
     border-right: 6px solid #ACB4B8;
@@ -13,7 +13,7 @@
   .guitar-fretboard .fret-cell.fret-0 {
     background-color: #a58465;
     width: 4%;
-    border-right: 10px solid #EDE9DC;
+    border-right: 14px solid #EDE9DC;
   }
 
   .guitar-fretboard .fret-cell .note-button {
