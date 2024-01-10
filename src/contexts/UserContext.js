@@ -14,7 +14,8 @@ export const UserProfileProvider = ({ children }) => {
     lastName: "",
     age: "",
     country: "",
-    avatarURL: ""
+    avatarURL: "",
+    avatarFileName: ""
   });
 
   useEffect(() => {
@@ -42,6 +43,7 @@ export const UserProfileProvider = ({ children }) => {
   );
 };
 
-export const useUserProfileData = () => {
+// this object contains information about the user's profile
+export const useUserProfileData = () => { 
     return useContext(UserProfileContext);
 };

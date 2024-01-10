@@ -7,7 +7,7 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false); // represents if the user is logged in or not
     
-    const [user, setUser] = useState(null); // represents the user object (e.g. user.email would give you the user's email
+    const [user, setUser] = useState(null); // represents the user's info in firebase (e.g. user.email would give you the user's email
     // after they log in)
 
     const loginUser = async (email, password) => {
@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }) => {
     
         // Clean up the listener on unmount
         return () => unsubscribe();
-      }, []); // Empty dependency array means this effect runs once on mou
+      }, []);
 
     return (
         <AuthContext.Provider value={{isAuthenticated, user, loginUser, logoutUser}}>

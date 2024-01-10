@@ -3,7 +3,7 @@ import { ref, set } from 'firebase/database';
 import { database, storage } from '../../firebase';
 import { useAuth } from '../../contexts/AuthContext';
 import { useUserProfileData } from '../../contexts/UserContext';
-import { getDownloadURL, uploadBytes, ref as storageRef } from 'firebase/storage';
+import { getDownloadURL, uploadBytes, ref as storageRef, deleteObject, listAll } from 'firebase/storage';
 
 const UserProfile = () => {
 
@@ -32,39 +32,21 @@ const UserProfile = () => {
     }
   };
 
-  // const handleUpload = async () => {
-  //   const imageRef = storageRef(storage, `profilepictures/${image.name}`);
+  const handleUpload = async () => { // handles profile picture setting in the database
 
-  //   await uploadBytes(imageRef, image).then( async (snapshot) => {
-  //     const url = await getDownloadURL(snapshot.ref);
-  //     console.log(url);
-  //     setUserProfileData({...userProfileData, avatarURL: url});
-  //   }).catch((error) => {
-  //     console.error("Error uploading image: ", error)
-  //   });
-  // };
+    // if there's an existing profile picture, delete it to save space
+    if (userProfileData.avatarURL !== "") {
+      const oldImageRef = storageRef(storage, `users/${user.uid}/profilepicture/${userProfileData.avatarFileName}`);
+      await deleteObject(oldImageRef).catch((error) => {
+        console.error("Error deleting old image: ", error);
+      });
+    }
 
-  // const setUserInDatabase = async (e) => {
-  //   e.preventDefault();
-  //   //alert(`userID: ${userProfileUserID}`)
-  //   await handleUpload();
-  //   console.log(userProfileData);
-  //   const userRef = ref(database, 'users/' + user.uid);
-  //   set(userRef, userProfileData).then(() => {
-  //     console.log("Data written successfully.");
-  //   })
-  //   .catch((error) => {
-  //     console.error("Error writing data: ", error);
-  //   });
-  // }
-
-  const handleUpload = async () => {
-    const imageRef = storageRef(storage, `profilepictures/${image.name}`);
-  
+    const imageRef = storageRef(storage, `users/${user.uid}/profilepicture/${image.name}`);
     return await uploadBytes(imageRef, image).then(async (snapshot) => {
       const url = await getDownloadURL(snapshot.ref);
       console.log(url);
-      const newUserProfileData = {...userProfileData, avatarURL: url};
+      const newUserProfileData = {...userProfileData, avatarURL: url, avatarFileName: image.name};
       setUserProfileData(newUserProfileData);
       return newUserProfileData;
     }).catch((error) => {
