@@ -43,6 +43,7 @@ const Navbar = () => {
         )}
       </nav>
       {/* Slide out menu */}
+      {/* Add more paths to routes in App.js */}
       <nav className={isOpen ? "side-bar active" : "side-bar"} style={{top: navMenuHeight}}>
         <ul className="side-bar-items">
             <li className="side-bar-item">
@@ -53,11 +54,11 @@ const Navbar = () => {
               }>Interactive Fretboard</NavLink>
             </li>
             <li className="side-bar-item">
-              <NavLink to="/" onClick={toggleMenu} className={
+              <NavLink to="/forums" onClick={toggleMenu} className={
                 ({isActive}) => {
                   return isActive ? "is-active" : "";
                 }
-              }>I am link 1</NavLink>
+              }>Forums</NavLink>
             </li>
             <li className="side-bar-item">
               <NavLink to="/" onClick={toggleMenu} className={

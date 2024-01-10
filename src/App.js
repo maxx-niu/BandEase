@@ -6,6 +6,7 @@ import LandingRegistration from './components/registration/landing-registration'
 import Login from './components/login/login';
 import UserProfile from './components/profile/user-profile';
 import Fretboard from './components/fretboard/fretboard';
+import Forums from './components/forums/forums'
 
 const App = () => {
   
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/register" element={<LandingRegistration></LandingRegistration>}/>
         <Route path="/profile" element={<UserProfile></UserProfile>}/>
         <Route path="/fretboard" element={<Fretboard></Fretboard>}/>
+        <Route path="/forums" element={<Forums></Forums>}/>
       </Routes>
     </div>
   );

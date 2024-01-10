@@ -1,0 +1,13 @@
+.forum-nav-bar {
+    display: flex;
+    list-style: none;
+}
+
+.forum-nav-bar .forum-topic-tab {
+    height: 100%;
+    margin: 0 10px;
+}
+
+.forum-nav-bar .forum-topic-tab:hover {
+    border-bottom: 4px solid #00b4d8;
+}
