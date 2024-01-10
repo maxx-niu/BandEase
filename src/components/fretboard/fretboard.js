@@ -1,6 +1,6 @@
 import React from 'react';
 import './fretboard.css';
-import { naturalNotes, sharpNotes, flatNotes, allNotesSharp, allNotesFlat } from './notes';
+import { allNotesSharp, allNotesFlat } from './notes';
 import NoteButton from './notebutton';
 
 const Fretboard = () => {
