@@ -8,6 +8,11 @@
     margin: 0 10px;
 }
 
+.forum-nav-bar .forum-topic-tab a {
+    color: black;
+    text-decoration: none;
+}
+
 .forum-nav-bar .forum-topic-tab:hover {
     border-bottom: 4px solid #00b4d8;
 }
